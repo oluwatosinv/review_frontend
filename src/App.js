@@ -7,7 +7,7 @@ import ReviewDetails from './pages/ReviewDetails'
 
 // Appollo Client
 const client = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
   cache: new InMemoryCache(),
 })
 
