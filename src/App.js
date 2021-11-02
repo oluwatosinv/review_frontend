@@ -4,11 +4,16 @@ import SiteHeader from './components/SiteHeader'
 import Category from './pages/Category'
 import Hompage from './pages/Hompage'
 import ReviewDetails from './pages/ReviewDetails'
+import { HttpLink } from 'apollo-link-http'
 
 // Appollo Client
-const client = new ApolloClient({
+const cache = new InMemoryCache()
+const link = new HttpLink({
   uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
-  cache: new InMemoryCache(),
+})
+const client = new ApolloClient({
+  cache,
+  link,
 })
 
 function App() {
